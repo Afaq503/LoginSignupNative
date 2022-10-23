@@ -3,32 +3,35 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'reac
 import backend from '../../assets/backend.png';
 import mainlogo from '../../assets/mainlogo.png';
 
-const Login = () => {
+const Login = ({ navigation }) => {
   return (
     <View style={styles.container} >
         <Image style={styles.backendbg} source={backend} />
         <View style={styles.container1} >
           <View style={styles.s1} >
             <Image style={styles.logo} source={mainlogo}/>
-            <Text style={styles.text} >Book & Play</Text>
+            <Text style={styles.text}
+             onPress= {()=> navigation.navigate('welcome') } >Book & Play</Text>
             <Text style={styles.small1}>Booking Ground and Play Game</Text>
           </View>
           <View style={styles.s2} >
             <Text style={styles.text1}>Login</Text>
             <Text style={styles.text2}>Sign in to continue</Text>
             <View style={styles.foorm}>
-              <Text style={styles.label}>Email</Text>
-              <TextInput style={styles.input} />
+              <Text style={styles.label} >Email</Text>
+              <TextInput style={styles.input} placeholder="Enter your Email" />
             </View>
             <View style={styles.foorm}>
               <Text style={styles.label} >Password</Text>
-              <TextInput style={styles.input} />
+              <TextInput style={styles.input} placeholder="Enter Your Password" />
             </View>
             <View style={styles.fp}>
               <Text style={styles.link}>Forget Password?</Text>
             </View>
             <Text style={styles.button1} >Login</Text>
-            <Text style={styles.link2}>Don't have an account? &nbsp;<Text style={styles.link1}>Create a new account</Text></Text>
+            <Text style={styles.link2}>Don't have an account? &nbsp;<Text style={styles.link1}
+            onPress={() => navigation.navigate('signup')}
+            >Create a new account</Text></Text>
           </View>
         </View>
     </View>
@@ -53,7 +56,7 @@ logo: {
   width: 200,
   height: 200,
   borderRadius: 110,
-  marginBottom: 60,
+  marginBottom: 20,
 },
 text2: {
   textAlign: 'center',
@@ -103,8 +106,8 @@ foorm: {
 },
 label: {
   marginLeft: 15,
-  color: 'black',
-  fontSize: 17,
+  color: '#026139',
+  fontSize: 14,
 },
 input: {
   borderRadius: 20,
@@ -123,7 +126,7 @@ link2: {
   fontSize: 15,
 },
 link1: {
-  color: 'grey',
+  color: '#023020',
   fontSize: 15,
 },
 fp: {

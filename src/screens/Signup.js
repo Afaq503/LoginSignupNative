@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import backend from '../../assets/backend.png';
 import mainlogo from '../../assets/mainlogo.png';
 
-const Signup = () => {
+const Signup = ({ navigation }) => {
   return (
     <View style={styles.container} >
         <Image style={styles.backendbg} source={backend} />
@@ -11,9 +11,10 @@ const Signup = () => {
           <View style={styles.s1} >
             
           </View>
-          <View style={styles.s2} >
+          
+          <ScrollView style={styles.s2} >
             <Text style={styles.text1}>Create New Account</Text>
-            <Text style={styles.link}>Don't have an account? &nbsp;<Text style={styles.link2}>Create a new account</Text></Text>
+            <Text style={styles.link}>Already Registered &nbsp;<Text style={styles.link2} onPress={() => navigation.navigate('login')} >Login here</Text></Text>
             <View style={styles.foorm}>
               <Text style={styles.label}>Name</Text>
               <TextInput style={styles.input} placeholder="Enter your Name" />
@@ -40,7 +41,7 @@ const Signup = () => {
             </View>
             
             <Text style={styles.button1} >SignUp</Text>
-          </View>
+          </ScrollView>
         </View>
     </View>
   )
@@ -95,12 +96,12 @@ s1: {
   justifyContent: 'center',
   alignItems: 'center',
   display: 'flex',
-  height: '10%',
+  height: '8%',
 },
 s2: {
   backgroundColor: 'white',
   width: '100%',
-  height: '95%',
+  height: '92%',
   display: 'flex',
   padding: 20,
   borderTopLeftRadius: 30,
@@ -113,8 +114,8 @@ foorm: {
 },
 label: {
   marginLeft: 15,
-  color: 'black',
-  fontSize: 17,
+  color: '#026139',
+  fontSize: 14,
   marginBottom: 3,
 },
 input: {
@@ -130,8 +131,9 @@ input1: {
   color: 'black',
   backgroundColor: '#90EE90',
   paddingHorizontal: 10,
-  paddingVertical: 8,
-  height: 60,
+  paddingVertical: 10,
+  height: 80,
+  textAlignVertical: 'top',
   // margin: 5,
 },
 link: {
@@ -140,7 +142,7 @@ link: {
   fontSize: 15,
 },
 link2: {
-  color: 'grey',
+  color: '#023020',
   fontSize: 15,
 },
 fp: {

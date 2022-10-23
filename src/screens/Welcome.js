@@ -4,7 +4,7 @@ import backend from '../../assets/backend.png';
 import mainlogo from '../../assets/mainlogo.png';
 
 
-const Welcome = () => {
+const Welcome = ({ navigation }) => {
   return (
     <View style={styles.container} >
         <Image style={styles.backendbg} source={backend} />
@@ -12,10 +12,14 @@ const Welcome = () => {
             <Text style={styles.head}>Welcome The Sports Arena Booking App</Text>
             <Image style={styles.logo1} source={mainlogo} />
             <TouchableOpacity>
-                <Text style={styles.button1} >Login</Text>
+                <Text style={styles.button1} 
+                onPress= {()=> navigation.navigate('login') }
+                >Login</Text>
             </TouchableOpacity>
             <TouchableOpacity>
-                <Text style={styles.button1} >SignUp</Text>
+                <Text style={styles.button1} 
+                onPress= {()=> navigation.navigate('signup') }
+                >SignUp</Text>
             </TouchableOpacity>
         </View>
     </View>
